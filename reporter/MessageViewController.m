@@ -24,7 +24,8 @@
 - (id)initWithMessage:(Message *)aMessage {
     self = [self initWithStyle:UITableViewStylePlain];
     if (self) {
-        self.message = aMessage;
+        if (aMessage != nil)
+            self.message = aMessage;
     }
     
     return self;

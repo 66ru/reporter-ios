@@ -25,16 +25,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //
-    Message *message = [[[Message alloc] init] autorelease];
+    /*Message *message = [[[Message alloc] init] autorelease];
     message.text = @"mytext";
     [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
     [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
     [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
     [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
-    [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
+    [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];*/
     //
-    //persistence = [[Persistence alloc] init];
-    //Message *message = [persistence getObject];
+    persistence = [[Persistence alloc] init];
+    Message *message = [persistence getObject];
     
     messageViewController = [[MessageViewController alloc] initWithMessage:message];
     navigationController = [[UINavigationController alloc] initWithRootViewController:messageViewController];
@@ -74,7 +74,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    messageViewController.message = [persistence getObject];
+    if (messageViewController.message == nil)
+        messageViewController.message = [persistence getObject];
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
