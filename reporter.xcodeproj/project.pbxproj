@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2669D7C0149DCDE200B04EBC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2669D7BF149DCDE200B04EBC /* MobileCoreServices.framework */; };
 		A8A89861149DA86400F95FAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89860149DA86400F95FAE /* UIKit.framework */; };
 		A8A89863149DA86400F95FAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89862149DA86400F95FAE /* Foundation.framework */; };
 		A8A89865149DA86400F95FAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89864149DA86400F95FAE /* CoreGraphics.framework */; };
@@ -21,9 +22,11 @@
 		A8A898A2149DECEE00F95FAE /* Persistence.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A898A1149DECEE00F95FAE /* Persistence.m */; };
 		A8A898A5149DF3A200F95FAE /* TransportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A898A4149DF3A200F95FAE /* TransportManager.m */; };
 		A8A898AC149DF61400F95FAE /* HttpPostTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A898AB149DF61300F95FAE /* HttpPostTransport.m */; };
+		A8ABFA8B149E3D5A00694D32 /* PhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ABFA8A149E3D5A00694D32 /* PhotoController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2669D7BF149DCDE200B04EBC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A8A8985C149DA86400F95FAE /* reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A89860149DA86400F95FAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A8A89862149DA86400F95FAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -48,6 +51,8 @@
 		A8A898A4149DF3A200F95FAE /* TransportManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransportManager.m; sourceTree = "<group>"; };
 		A8A898AA149DF61300F95FAE /* HttpPostTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpPostTransport.h; sourceTree = "<group>"; };
 		A8A898AB149DF61300F95FAE /* HttpPostTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpPostTransport.m; sourceTree = "<group>"; };
+		A8ABFA89149E3D5A00694D32 /* PhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoController.h; sourceTree = "<group>"; };
+		A8ABFA8A149E3D5A00694D32 /* PhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2669D7C0149DCDE200B04EBC /* MobileCoreServices.framework in Frameworks */,
 				A8A89861149DA86400F95FAE /* UIKit.framework in Frameworks */,
 				A8A89863149DA86400F95FAE /* Foundation.framework in Frameworks */,
 				A8A89865149DA86400F95FAE /* CoreGraphics.framework in Frameworks */,
@@ -84,6 +90,7 @@
 		A8A8985F149DA86400F95FAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2669D7BF149DCDE200B04EBC /* MobileCoreServices.framework */,
 				A8A89860149DA86400F95FAE /* UIKit.framework */,
 				A8A89862149DA86400F95FAE /* Foundation.framework */,
 				A8A89864149DA86400F95FAE /* CoreGraphics.framework */,
@@ -109,6 +116,8 @@
 				A8A898A4149DF3A200F95FAE /* TransportManager.m */,
 				A8A898AA149DF61300F95FAE /* HttpPostTransport.h */,
 				A8A898AB149DF61300F95FAE /* HttpPostTransport.m */,
+				A8ABFA89149E3D5A00694D32 /* PhotoController.h */,
+				A8ABFA8A149E3D5A00694D32 /* PhotoController.m */,
 			);
 			path = reporter;
 			sourceTree = "<group>";
@@ -205,6 +214,7 @@
 				A8A898A2149DECEE00F95FAE /* Persistence.m in Sources */,
 				A8A898A5149DF3A200F95FAE /* TransportManager.m in Sources */,
 				A8A898AC149DF61400F95FAE /* HttpPostTransport.m in Sources */,
+				A8ABFA8B149E3D5A00694D32 /* PhotoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +316,7 @@
 				A8A89876149DA86400F95FAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

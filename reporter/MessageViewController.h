@@ -10,6 +10,7 @@
 #import "TextCell.h"
 #import "Message.h"
 #import "TransportManager.h"
+#import "PhotoController.h"
 
 @interface MessageViewController : UITableViewController //todo: implement TransportManagerDelegate
 
@@ -18,6 +19,6 @@
 
 - (id)initWithMessage:(Message *)aMessage;
 
-- (void)addPhoto;
+//- (void)addPhoto;
 
 @end

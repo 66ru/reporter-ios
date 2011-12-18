@@ -9,6 +9,7 @@
 #import "MessageViewController.h"
 
 //todo: implement https://github.com/AlanQuatermain/AQGridView
+//todo: implement table edit (row deleting)
 
 @implementation MessageViewController
 @synthesize textCell, message;
@@ -37,7 +38,8 @@
 }
 
 - (void)addPhoto {
-    
+    PhotoController *photoController = [[PhotoController alloc] initWithParentController:self message:message];
+    [photoController showAddPhotoDialog];
 }
 
 - (void)sendMessage {
@@ -210,7 +212,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == [self tableView:tableView numberOfRowsInSection:indexPath.section]-1) {
-        //todo: write real implementatiob
+        [tableView deselectRowAtIndexPath:indexPath animated:true];
         [self addPhoto];
     }
     // Navigation logic may go here. Create and push another view controller.

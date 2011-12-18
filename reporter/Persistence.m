@@ -39,7 +39,7 @@
     result = [data writeToFile:dataFilePath atomically:YES];
     
     if(result) {
-        NSLog(@"saved");  
+        NSLog(@"saved");
     }
     else NSLog(@"not been saved");
     
