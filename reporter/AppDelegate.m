@@ -6,6 +6,8 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+// todo: before release check memory allocation and releases!
+
 #import "AppDelegate.h"
 
 @implementation AppDelegate
@@ -42,7 +44,6 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
     self.window.rootViewController = navigationController;
     return YES;
 }

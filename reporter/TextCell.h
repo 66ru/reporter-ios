@@ -10,4 +10,6 @@
 
 @interface TextCell : UITableViewCell
 
+@property (retain, nonatomic) IBOutlet UILabel *customTextLabel;
+
 @end

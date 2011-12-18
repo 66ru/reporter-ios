@@ -11,8 +11,11 @@
 #import "Message.h"
 #import "TransportManager.h"
 #import "PhotoController.h"
+#import "MessageTextEditController.h"
 
-@interface MessageViewController : UITableViewController //todo: implement TransportManagerDelegate
+@interface MessageViewController : UITableViewController { //todo: implement TransportManagerDelegate
+    PhotoController *photoController;
+}
 
 @property (retain, nonatomic) IBOutlet TextCell *textCell;
 @property (retain)Message *message;

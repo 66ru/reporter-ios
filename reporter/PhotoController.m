@@ -6,8 +6,6 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-// todo: release me after add recieve PhotoControllerWorkEnded notification;
-
 #import "PhotoController.h"
 
 @implementation PhotoController
@@ -40,7 +38,7 @@
     UIActionSheet *popupQuery = nil;
     if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]==YES) {
         popupQuery = [[UIActionSheet alloc] 
-                      initWithTitle:@"Выбрать источник" 
+                      initWithTitle:@"Выберите источник" 
                       delegate:self 
                       cancelButtonTitle:@"Отмена" 
                       destructiveButtonTitle:nil 
@@ -48,7 +46,7 @@
                       nil];
     } else {
         popupQuery = [[UIActionSheet alloc] 
-                      initWithTitle:@"Выбрать источник" 
+                      initWithTitle:@"Выберите источник" 
                       delegate:self 
                       cancelButtonTitle:@"Отмена" 
                       destructiveButtonTitle:nil
@@ -101,7 +99,6 @@
         [[picker presentingViewController] dismissModalViewControllerAnimated: YES];
     }
     [picker release];
-    // todo: send PhotoControllerWorkEnded notification
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -119,7 +116,6 @@
         }
         
         [message.photos addObject:myImage];
-        // todo: send PhotoControllerWorkEnded notification
     }
     
     [picker.presentingViewController dismissModalViewControllerAnimated: YES];

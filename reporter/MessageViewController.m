@@ -30,16 +30,10 @@
 - (id)initWithMessage:(Message *)aMessage {
     self = [self initWithStyle:UITableViewStylePlain];
     if (self) {
-        if (aMessage != nil)
-            self.message = aMessage;
+        self.message = aMessage;
     }
     
     return self;
-}
-
-- (void)addPhoto {
-    PhotoController *photoController = [[PhotoController alloc] initWithParentController:self message:message];
-    [photoController showAddPhotoDialog];
 }
 
 - (void)sendMessage {
@@ -58,6 +52,7 @@
 #pragma mark - View lifecycle
 
 - (void)dealloc {
+    [photoController release];
     [message release];
     [TextCell release];
     [super dealloc];
@@ -141,6 +136,13 @@
             cell = textCell;
             self.textCell = nil;
         }
+        if (![message.text isEqualToString:@""]) {
+            cell.customTextLabel.text = message.text;
+            cell.customTextLabel.textColor = [UIColor blackColor];
+        } else {
+            cell.customTextLabel.text = @"Введите текст...";
+            cell.customTextLabel.textColor = [UIColor darkGrayColor];
+        }
         
         return cell;
     } else if (indexPath.row == [self tableView:tableView numberOfRowsInSection:indexPath.section]-1) {
@@ -211,9 +213,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+
+    if(indexPath.section == 0 && indexPath.row == 0) {
+        MessageTextEditController *messageTextEditController = [[[MessageTextEditController alloc] initWithMessage:message] autorelease];
+        [self.navigationController pushViewController:messageTextEditController animated:YES];
+    }
     if (indexPath.row == [self tableView:tableView numberOfRowsInSection:indexPath.section]-1) {
-        [tableView deselectRowAtIndexPath:indexPath animated:true];
-        [self addPhoto];
+        photoController = [[PhotoController alloc] initWithParentController:self message:message];
+        [photoController showAddPhotoDialog];
     }
     // Navigation logic may go here. Create and push another view controller.
     /*

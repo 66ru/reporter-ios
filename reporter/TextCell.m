@@ -9,6 +9,7 @@
 #import "TextCell.h"
 
 @implementation TextCell
+@synthesize customTextLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -26,4 +27,8 @@
     // Configure the view for the selected state
 }
 
+- (void)dealloc {
+    [customTextLabel release];
+    [super dealloc];
+}
 @end

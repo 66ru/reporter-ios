@@ -23,6 +23,7 @@
 		A8A898A5149DF3A200F95FAE /* TransportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A898A4149DF3A200F95FAE /* TransportManager.m */; };
 		A8A898AC149DF61400F95FAE /* HttpPostTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A898AB149DF61300F95FAE /* HttpPostTransport.m */; };
 		A8ABFA8B149E3D5A00694D32 /* PhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ABFA8A149E3D5A00694D32 /* PhotoController.m */; };
+		A8ABFA97149E577000694D32 /* MessageTextEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ABFA96149E576F00694D32 /* MessageTextEditController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,8 @@
 		A8A898AB149DF61300F95FAE /* HttpPostTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpPostTransport.m; sourceTree = "<group>"; };
 		A8ABFA89149E3D5A00694D32 /* PhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoController.h; sourceTree = "<group>"; };
 		A8ABFA8A149E3D5A00694D32 /* PhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoController.m; sourceTree = "<group>"; };
+		A8ABFA95149E576F00694D32 /* MessageTextEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTextEditController.h; sourceTree = "<group>"; };
+		A8ABFA96149E576F00694D32 /* MessageTextEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTextEditController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +104,12 @@
 		A8A89866149DA86400F95FAE /* reporter */ = {
 			isa = PBXGroup;
 			children = (
-				A8A898A0149DECED00F95FAE /* Persistence.h */,
-				A8A898A1149DECEE00F95FAE /* Persistence.m */,
-				A8A8989E149DE40F00F95FAE /* Picture.jpg */,
-				A8A89898149DC24100F95FAE /* Cells */,
 				A8A8986F149DA86400F95FAE /* AppDelegate.h */,
 				A8A89870149DA86400F95FAE /* AppDelegate.m */,
-				A8A89867149DA86400F95FAE /* Supporting Files */,
+				A8A89898149DC24100F95FAE /* Cells */,
+				A8A8989E149DE40F00F95FAE /* Picture.jpg */,
+				A8A898A0149DECED00F95FAE /* Persistence.h */,
+				A8A898A1149DECEE00F95FAE /* Persistence.m */,
 				A8A89877149DABEF00F95FAE /* Message.h */,
 				A8A89878149DABEF00F95FAE /* Message.m */,
 				A8A89893149DB37A00F95FAE /* MessageViewController.h */,
@@ -118,6 +120,9 @@
 				A8A898AB149DF61300F95FAE /* HttpPostTransport.m */,
 				A8ABFA89149E3D5A00694D32 /* PhotoController.h */,
 				A8ABFA8A149E3D5A00694D32 /* PhotoController.m */,
+				A8ABFA95149E576F00694D32 /* MessageTextEditController.h */,
+				A8ABFA96149E576F00694D32 /* MessageTextEditController.m */,
+				A8A89867149DA86400F95FAE /* Supporting Files */,
 			);
 			path = reporter;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				A8A898A5149DF3A200F95FAE /* TransportManager.m in Sources */,
 				A8A898AC149DF61400F95FAE /* HttpPostTransport.m in Sources */,
 				A8ABFA8B149E3D5A00694D32 /* PhotoController.m in Sources */,
+				A8ABFA97149E577000694D32 /* MessageTextEditController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

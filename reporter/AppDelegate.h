@@ -6,10 +6,10 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-
 #import <UIKit/UIKit.h>
 #import "MessageViewController.h"
 #import "Persistence.h"
+#import "Message.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     UINavigationController *navigationController;
