@@ -12,4 +12,15 @@
 
 @synthesize text, photos;
 
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:text forKey:@"MReporterMessageText"];
+    [coder encodeObject:photos forKey:@"MReporterMessageTextPhotos"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder {
+    text = [[coder decodeObjectForKey:@"MReporterMessageText"] retain];
+    photos = [[coder decodeObjectForKey:@"MReporterMessageText"] retain];
+    return self;
+}
+
 @end
