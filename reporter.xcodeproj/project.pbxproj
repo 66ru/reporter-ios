@@ -14,6 +14,9 @@
 		A8A8986D149DA86400F95FAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A8986C149DA86400F95FAE /* main.m */; };
 		A8A89871149DA86400F95FAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A89870149DA86400F95FAE /* AppDelegate.m */; };
 		A8A89879149DABEF00F95FAE /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A89878149DABEF00F95FAE /* Message.m */; };
+		A8A89895149DB37A00F95FAE /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A89894149DB37A00F95FAE /* MessageViewController.m */; };
+		A8A89897149DC21700F95FAE /* TextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8A89896149DC21700F95FAE /* TextCell.xib */; };
+		A8A8989B149DC28000F95FAE /* TextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A8989A149DC28000F95FAE /* TextCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,11 @@
 		A8A89870149DA86400F95FAE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A8A89877149DABEF00F95FAE /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		A8A89878149DABEF00F95FAE /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		A8A89893149DB37A00F95FAE /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		A8A89894149DB37A00F95FAE /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		A8A89896149DC21700F95FAE /* TextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCell.xib; sourceTree = "<group>"; };
+		A8A89899149DC28000F95FAE /* TextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextCell.h; sourceTree = "<group>"; };
+		A8A8989A149DC28000F95FAE /* TextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,11 +83,14 @@
 		A8A89866149DA86400F95FAE /* reporter */ = {
 			isa = PBXGroup;
 			children = (
+				A8A89898149DC24100F95FAE /* Cells */,
 				A8A8986F149DA86400F95FAE /* AppDelegate.h */,
 				A8A89870149DA86400F95FAE /* AppDelegate.m */,
 				A8A89867149DA86400F95FAE /* Supporting Files */,
 				A8A89877149DABEF00F95FAE /* Message.h */,
 				A8A89878149DABEF00F95FAE /* Message.m */,
+				A8A89893149DB37A00F95FAE /* MessageViewController.h */,
+				A8A89894149DB37A00F95FAE /* MessageViewController.m */,
 			);
 			path = reporter;
 			sourceTree = "<group>";
@@ -93,6 +104,16 @@
 				A8A8986E149DA86400F95FAE /* reporter-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A8A89898149DC24100F95FAE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A8A89896149DC21700F95FAE /* TextCell.xib */,
+				A8A89899149DC28000F95FAE /* TextCell.h */,
+				A8A8989A149DC28000F95FAE /* TextCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8A8986B149DA86400F95FAE /* InfoPlist.strings in Resources */,
+				A8A89897149DC21700F95FAE /* TextCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +181,8 @@
 				A8A8986D149DA86400F95FAE /* main.m in Sources */,
 				A8A89871149DA86400F95FAE /* AppDelegate.m in Sources */,
 				A8A89879149DABEF00F95FAE /* Message.m in Sources */,
+				A8A89895149DB37A00F95FAE /* MessageViewController.m in Sources */,
+				A8A8989B149DC28000F95FAE /* TextCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
