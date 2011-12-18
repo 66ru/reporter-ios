@@ -17,6 +17,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self->needToSavePhoto = NO;
     }
     return self;
 }
@@ -50,15 +51,14 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)workWithGallery {
+- (void)callWithImagesPickerWithType:(UIImagePickerControllerSourceType)imagePickerSourceType {
     
     // галерея есть у всех?
-    if (([UIImagePickerController isSourceTypeAvailable:
-          UIImagePickerControllerSourceTypePhotoLibrary] == NO))
+    if (([UIImagePickerController isSourceTypeAvailable:imagePickerSourceType] == NO))
         return;
     
     UIImagePickerController *mediaUI = [[UIImagePickerController alloc] init];
-    mediaUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    mediaUI.sourceType = imagePickerSourceType;
     
     // Displays saved pictures and movies, if both are available, from the
     // Camera Roll album.
@@ -94,6 +94,11 @@
         == kCFCompareEqualTo) {
         
         UIImage *myImage = (UIImage *) [info objectForKey: UIImagePickerControllerOriginalImage];
+        
+        if (self->needToSavePhoto) {
+            UIImageWriteToSavedPhotosAlbum(myImage, nil, nil , nil);
+            self->needToSavePhoto = NO;
+        }
         
         self.imageView1.image = myImage;
     }
@@ -135,9 +140,10 @@
     BOOL gotCamera = [UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera];
 	
     if ((gotCamera && buttonIndex == 0)) {
-        // TODO: открываем камеру итд
+        self->needToSavePhoto=YES;
+        [self callWithImagesPickerWithType:UIImagePickerControllerSourceTypeCamera];
     } else if((gotCamera && buttonIndex == 1) || (!gotCamera && buttonIndex == 0)) {
-        [self workWithGallery];
+        [self callWithImagesPickerWithType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
 }
 
