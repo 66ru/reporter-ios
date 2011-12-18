@@ -17,7 +17,6 @@
     self = [super initWithStyle:style];
     if (self) {
         self.title = @"Репортаж";
-        //[self configureToolbarItems];
     }
     return self;
 }
@@ -29,24 +28,6 @@
     }
     
     return self;
-}
-
-- (void)configureToolbarItems
-{
-    UIBarButtonItem *flexibleSpaceButtonItem = [[UIBarButtonItem alloc]
-                                                initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                target:nil action:nil];
-    
-    UIBarButtonItem *addPhoto = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(addPhoto)];
-    
-    // Set our toolbar items
-    self.toolbarItems = [NSArray arrayWithObjects:
-                         flexibleSpaceButtonItem,
-                         addPhoto,
-                         nil];
-    
-    [addPhoto release];
-    [flexibleSpaceButtonItem release];
 }
 
 - (void)addPhoto {
@@ -207,6 +188,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == [self tableView:tableView numberOfRowsInSection:indexPath.section]-1) {
+        //todo: write real implementatiob
+        [self addPhoto];
+    }
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
