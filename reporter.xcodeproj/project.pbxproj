@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2669D7B7149DB6D600B04EBC /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2669D7B5149DB6D600B04EBC /* TakePhotoViewController.m */; };
 		2669D7B8149DB6D600B04EBC /* TakePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2669D7B6149DB6D600B04EBC /* TakePhotoViewController.xib */; };
+		2669D7C0149DCDE200B04EBC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2669D7BF149DCDE200B04EBC /* MobileCoreServices.framework */; };
 		A8A89861149DA86400F95FAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89860149DA86400F95FAE /* UIKit.framework */; };
 		A8A89863149DA86400F95FAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89862149DA86400F95FAE /* Foundation.framework */; };
 		A8A89865149DA86400F95FAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89864149DA86400F95FAE /* CoreGraphics.framework */; };
@@ -22,6 +23,7 @@
 		2669D7B4149DB6D600B04EBC /* TakePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhotoViewController.h; sourceTree = "<group>"; };
 		2669D7B5149DB6D600B04EBC /* TakePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhotoViewController.m; sourceTree = "<group>"; };
 		2669D7B6149DB6D600B04EBC /* TakePhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TakePhotoViewController.xib; sourceTree = "<group>"; };
+		2669D7BF149DCDE200B04EBC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A8A8985C149DA86400F95FAE /* reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A89860149DA86400F95FAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A8A89862149DA86400F95FAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -41,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2669D7C0149DCDE200B04EBC /* MobileCoreServices.framework in Frameworks */,
 				A8A89861149DA86400F95FAE /* UIKit.framework in Frameworks */,
 				A8A89863149DA86400F95FAE /* Foundation.framework in Frameworks */,
 				A8A89865149DA86400F95FAE /* CoreGraphics.framework in Frameworks */,
@@ -70,6 +73,7 @@
 		A8A8985F149DA86400F95FAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2669D7BF149DCDE200B04EBC /* MobileCoreServices.framework */,
 				A8A89860149DA86400F95FAE /* UIKit.framework */,
 				A8A89862149DA86400F95FAE /* Foundation.framework */,
 				A8A89864149DA86400F95FAE /* CoreGraphics.framework */,

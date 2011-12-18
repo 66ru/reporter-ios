@@ -65,9 +65,7 @@
     
     // Displays saved pictures and movies, if both are available, from the
     // Camera Roll album.
-    mediaUI.mediaTypes =
-    [UIImagePickerController availableMediaTypesForSourceType:
-     UIImagePickerControllerSourceTypePhotoLibrary];
+    mediaUI.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
     
     // Hides the controls for moving & scaling pictures, or for
     // trimming movies. To instead show the controls, use YES.
@@ -85,46 +83,25 @@
 
 // UIImagePickerControllerDelegate implementation
 
+/*
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [[picker parentViewController] dismissModalViewControllerAnimated: YES];
     [picker release];
 }
+ */
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
-    UIImage *originalImage, *editedImage, *imageToSave;
     
     // Handle a still image capture
     if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0)
         == kCFCompareEqualTo) {
         
-        editedImage = (UIImage *) [info objectForKey:
-                                   UIImagePickerControllerEditedImage];
-        originalImage = (UIImage *) [info objectForKey:
+        UIImage *myImage = (UIImage *) [info objectForKey:
                                      UIImagePickerControllerOriginalImage];
         
-        if (editedImage) {
-            imageToSave = editedImage;
-        } else {
-            imageToSave = originalImage;
-        }
-        
-        // Save the new image (original or edited) to the Camera Roll
-        UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
+        // TODO: do something wz my image
     }
-    
-    // Handle a movie capture
-    if (CFStringCompare ((CFStringRef) mediaType, kUTTypeMovie, 0)
-        == kCFCompareEqualTo) {
-        
-        NSString *moviePath = [[info objectForKey:
-                                UIImagePickerControllerMediaURL] path];
-        
-        if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum (moviePath)) {
-            UISaveVideoAtPathToSavedPhotosAlbum (moviePath, nil, nil, nil);
-        }
-    }
-    
     [[picker parentViewController] dismissModalViewControllerAnimated: YES];
     [picker release];
 }
