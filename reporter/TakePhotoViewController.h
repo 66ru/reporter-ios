@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TakePhotoViewController : UIViewController
+@interface TakePhotoViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property(retain) IBOutlet UIButton* button1;
 

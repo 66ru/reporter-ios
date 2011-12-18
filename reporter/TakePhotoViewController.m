@@ -55,19 +55,19 @@
                                                UINavigationControllerDelegate>) delegate {
     
     if (([UIImagePickerController isSourceTypeAvailable:
-          UIImagePickerControllerSourceTypeSavedPhotosAlbum] == NO)
+          UIImagePickerControllerSourceTypePhotoLibrary] == NO)
         || (delegate == nil)
         || (controller == nil))
         return NO;
     
     UIImagePickerController *mediaUI = [[UIImagePickerController alloc] init];
-    mediaUI.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    mediaUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     // Displays saved pictures and movies, if both are available, from the
     // Camera Roll album.
     mediaUI.mediaTypes =
     [UIImagePickerController availableMediaTypesForSourceType:
-     UIImagePickerControllerSourceTypeSavedPhotosAlbum];
+     UIImagePickerControllerSourceTypePhotoLibrary];
     
     // Hides the controls for moving & scaling pictures, or for
     // trimming movies. To instead show the controls, use YES.
@@ -82,4 +82,53 @@
 - (IBAction)buttonTouched:(id)sender {
     [self startMediaBrowserFromViewController:self usingDelegate:self];
 }
+
+// UIImagePickerControllerDelegate implementation
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [[picker parentViewController] dismissModalViewControllerAnimated: YES];
+    [picker release];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
+    UIImage *originalImage, *editedImage, *imageToSave;
+    
+    // Handle a still image capture
+    if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0)
+        == kCFCompareEqualTo) {
+        
+        editedImage = (UIImage *) [info objectForKey:
+                                   UIImagePickerControllerEditedImage];
+        originalImage = (UIImage *) [info objectForKey:
+                                     UIImagePickerControllerOriginalImage];
+        
+        if (editedImage) {
+            imageToSave = editedImage;
+        } else {
+            imageToSave = originalImage;
+        }
+        
+        // Save the new image (original or edited) to the Camera Roll
+        UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
+    }
+    
+    // Handle a movie capture
+    if (CFStringCompare ((CFStringRef) mediaType, kUTTypeMovie, 0)
+        == kCFCompareEqualTo) {
+        
+        NSString *moviePath = [[info objectForKey:
+                                UIImagePickerControllerMediaURL] path];
+        
+        if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum (moviePath)) {
+            UISaveVideoAtPathToSavedPhotosAlbum (moviePath, nil, nil, nil);
+        }
+    }
+    
+    [[picker parentViewController] dismissModalViewControllerAnimated: YES];
+    [picker release];
+}
+
 @end
+
+
