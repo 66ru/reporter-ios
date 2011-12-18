@@ -98,4 +98,41 @@
     [picker release];
 }
 
+// Action sheet
+
+-(IBAction)showActionSheet:(id)sender {
+    UIActionSheet *popupQuery = nil;
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]==YES) {
+         popupQuery = [[UIActionSheet alloc] 
+                                     initWithTitle:@"Title" 
+                                     delegate:self 
+                                     cancelButtonTitle:@"Отмена" 
+                                     destructiveButtonTitle:nil 
+                                     otherButtonTitles:@"Сделать фото", @"Открыть галерею", 
+                                     nil];
+    } else {
+         popupQuery = [[UIActionSheet alloc] 
+                                     initWithTitle:@"Title" 
+                                     delegate:self 
+                                     cancelButtonTitle:@"Отмена" 
+                                     destructiveButtonTitle:nil 
+                                     otherButtonTitles:@"Открыть галерею", 
+                                     nil];
+    }
+	
+    
+	popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+	[popupQuery showInView:self.view];
+	[popupQuery release];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    BOOL gotCamera = [UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera];
+	
+    if (buttonIndex == 0) {
+        
+    }
+}
+
+
 @end

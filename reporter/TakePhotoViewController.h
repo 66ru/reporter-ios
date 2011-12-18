@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/UTCoreTypes.h>
 
-@interface TakePhotoViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface TakePhotoViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @property(retain) IBOutlet UIButton* button1;
 @property(retain) IBOutlet UIImageView* imageView1;
 
 - (IBAction)buttonTouched:(id)sender;
+
+- (IBAction)showActionSheet:(id)sender;
 
 @end

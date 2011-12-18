@@ -72,7 +72,7 @@
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
-					<object class="IBUIImageView" id="1006612875">
+					<object class="IBUIImageView" id="783359158">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{40, 20}, {240, 128}}</string>
@@ -120,18 +120,18 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">imageView1</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="1006612875"/>
+						<reference key="destination" ref="783359158"/>
 					</object>
 					<int key="connectionID">8</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">buttonTouched:</string>
+						<string key="label">showActionSheet:</string>
 						<reference key="source" ref="391716032"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">6</int>
+					<int key="connectionID">9</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -147,7 +147,7 @@
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="391716032"/>
-							<reference ref="1006612875"/>
+							<reference ref="783359158"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -169,7 +169,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">7</int>
-						<reference key="object" ref="1006612875"/>
+						<reference key="object" ref="783359158"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</array>
@@ -187,24 +187,27 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">8</int>
+			<int key="maxID">9</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">TakePhotoViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">buttonTouched:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">buttonTouched:</string>
-						<object class="IBActionInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="buttonTouched:">id</string>
+						<string key="showActionSheet:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="buttonTouched:">
 							<string key="name">buttonTouched:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</object>
+						<object class="IBActionInfo" key="showActionSheet:">
+							<string key="name">showActionSheet:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="button1">UIButton</string>
 						<string key="imageView1">UIImageView</string>
