@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "TextCell.h"
 #import "Message.h"
+#import "TransportManager.h"
 
-@interface MessageViewController : UITableViewController
+@interface MessageViewController : UITableViewController //todo: implement TransportManagerDelegate
 
 @property (retain, nonatomic) IBOutlet TextCell *textCell;
 @property (retain)Message *message;

@@ -40,7 +40,8 @@
 }
 
 - (void)sendMessage {
-    
+    TransportManager *transportManager = [[[TransportManager alloc] init] autorelease];
+    [transportManager sendMessage:message];
 }
 
 - (void)didReceiveMemoryWarning
