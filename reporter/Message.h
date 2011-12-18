@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Message : NSObject
+@interface Message : NSObject <NSCoding>
 
 @property (copy)NSString *text;
 @property (retain)NSMutableArray *photos;

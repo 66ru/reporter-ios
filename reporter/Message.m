@@ -25,4 +25,15 @@
     [super dealloc];
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:text forKey:@"MReporterMessageText"];
+    [coder encodeObject:photos forKey:@"MReporterMessageTextPhotos"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder {
+    text = [[coder decodeObjectForKey:@"MReporterMessageText"] retain];
+    photos = [[coder decodeObjectForKey:@"MReporterMessageTextPhotos"] retain];
+    return self;
+}
+
 @end

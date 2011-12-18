@@ -16,6 +16,7 @@
 {
     [messageViewController release];
     [navigationController release];
+    [persistence release];
     
     [_window release];
     [super dealloc];
@@ -32,6 +33,8 @@
     [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
     [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
     //
+    //persistence = [[Persistence alloc] init];
+    //Message *message = [persistence getObject];
     
     messageViewController = [[MessageViewController alloc] initWithMessage:message];
     navigationController = [[UINavigationController alloc] initWithRootViewController:messageViewController];
@@ -41,7 +44,6 @@
     [self.window makeKeyAndVisible];
     
     self.window.rootViewController = navigationController;
-    
     return YES;
 }
 
@@ -55,6 +57,8 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    [persistence save: messageViewController.message];
+
     /*
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
@@ -70,6 +74,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    messageViewController.message = [persistence getObject];
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
@@ -77,6 +82,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    [persistence save: messageViewController.message];
     /*
      Called when the application is about to terminate.
      Save data if appropriate.
