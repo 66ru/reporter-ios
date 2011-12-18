@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TakePhotoViewController.h"
 
 @implementation AppDelegate
 
@@ -22,6 +23,10 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
+    TakePhotoViewController *takePhotoViewController = [[[TakePhotoViewController alloc] init] autorelease];
+    
+    self.window.rootViewController = takePhotoViewController;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

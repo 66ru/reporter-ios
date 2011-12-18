@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2669D7B7149DB6D600B04EBC /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2669D7B5149DB6D600B04EBC /* TakePhotoViewController.m */; };
+		2669D7B8149DB6D600B04EBC /* TakePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2669D7B6149DB6D600B04EBC /* TakePhotoViewController.xib */; };
 		A8A89861149DA86400F95FAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89860149DA86400F95FAE /* UIKit.framework */; };
 		A8A89863149DA86400F95FAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89862149DA86400F95FAE /* Foundation.framework */; };
 		A8A89865149DA86400F95FAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89864149DA86400F95FAE /* CoreGraphics.framework */; };
@@ -17,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2669D7B4149DB6D600B04EBC /* TakePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhotoViewController.h; sourceTree = "<group>"; };
+		2669D7B5149DB6D600B04EBC /* TakePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhotoViewController.m; sourceTree = "<group>"; };
+		2669D7B6149DB6D600B04EBC /* TakePhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TakePhotoViewController.xib; sourceTree = "<group>"; };
 		A8A8985C149DA86400F95FAE /* reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A89860149DA86400F95FAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A8A89862149DA86400F95FAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -80,6 +85,9 @@
 				A8A89867149DA86400F95FAE /* Supporting Files */,
 				A8A89877149DABEF00F95FAE /* Message.h */,
 				A8A89878149DABEF00F95FAE /* Message.m */,
+				2669D7B4149DB6D600B04EBC /* TakePhotoViewController.h */,
+				2669D7B5149DB6D600B04EBC /* TakePhotoViewController.m */,
+				2669D7B6149DB6D600B04EBC /* TakePhotoViewController.xib */,
 			);
 			path = reporter;
 			sourceTree = "<group>";
@@ -146,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8A8986B149DA86400F95FAE /* InfoPlist.strings in Resources */,
+				2669D7B8149DB6D600B04EBC /* TakePhotoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +168,7 @@
 				A8A8986D149DA86400F95FAE /* main.m in Sources */,
 				A8A89871149DA86400F95FAE /* AppDelegate.m in Sources */,
 				A8A89879149DABEF00F95FAE /* Message.m in Sources */,
+				2669D7B7149DB6D600B04EBC /* TakePhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +270,7 @@
 				A8A89876149DA86400F95FAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
