@@ -11,6 +11,6 @@
 @interface Message : NSObject <NSCoding>
 
 @property (copy)NSString *text;
-@property (retain)NSMutableArray *photos;
+@property (retain)NSMutableArray *photos; // todo: modify for use not with UIImage, but for NSData
 
 @end

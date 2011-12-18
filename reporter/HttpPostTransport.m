@@ -46,6 +46,7 @@
     [receivedData appendData:data];
 }
 
+// todo: modify for several files upload
 - (NSURLRequest *)formPOSTFileDataRequestWithURLWithVariables:(NSURL *)url data:(NSData *)data fileName:(NSString *)fileName variables:(NSMutableDictionary*)variables {
     // from http://www.cocoadev.com/index.pl?HTTPFileUpload
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
