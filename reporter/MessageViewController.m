@@ -17,6 +17,10 @@
     self = [super initWithStyle:style];
     if (self) {
         self.title = @"Репортаж";
+        
+        UIBarButtonItem *sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Отправить" style:UIBarButtonItemStylePlain target:self action:@selector(sendMessage)];
+        self.navigationItem.rightBarButtonItem = sendButton;
+        [sendButton release];
     }
     return self;
 }
@@ -32,6 +36,10 @@
 }
 
 - (void)addPhoto {
+    
+}
+
+- (void)sendMessage {
     
 }
 
