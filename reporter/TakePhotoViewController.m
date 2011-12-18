@@ -50,7 +50,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)buttonTouched:(id)sender {
+- (void)workWithGallery {
     
     // галерея есть у всех?
     if (([UIImagePickerController isSourceTypeAvailable:
@@ -115,7 +115,7 @@
                                      initWithTitle:@"Title" 
                                      delegate:self 
                                      cancelButtonTitle:@"Отмена" 
-                                     destructiveButtonTitle:nil 
+                                     destructiveButtonTitle:nil
                                      otherButtonTitles:@"Открыть галерею", 
                                      nil];
     }
@@ -129,8 +129,10 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     BOOL gotCamera = [UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera];
 	
-    if (buttonIndex == 0) {
-        
+    if (gotCamera && buttonIndex == 0) {
+        // TODO: открываем камеру итд
+    } else {
+        [self workWithGallery];
     }
 }
 
