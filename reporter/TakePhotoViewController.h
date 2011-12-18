@@ -12,6 +12,7 @@
 @interface TakePhotoViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property(retain) IBOutlet UIButton* button1;
+@property(retain) IBOutlet UIImageView* imageView1;
 
 - (IBAction)buttonTouched:(id)sender;
 

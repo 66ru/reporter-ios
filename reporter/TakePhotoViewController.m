@@ -10,7 +10,7 @@
 
 @implementation TakePhotoViewController
 
-@synthesize button1;
+@synthesize button1, imageView1;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,15 +50,12 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (BOOL) startMediaBrowserFromViewController: (UIViewController*) controller
-                               usingDelegate: (id <UIImagePickerControllerDelegate,
-                                               UINavigationControllerDelegate>) delegate {
+- (IBAction)buttonTouched:(id)sender {
     
+    // галерея есть у всех?
     if (([UIImagePickerController isSourceTypeAvailable:
-          UIImagePickerControllerSourceTypePhotoLibrary] == NO)
-        || (delegate == nil)
-        || (controller == nil))
-        return NO;
+          UIImagePickerControllerSourceTypePhotoLibrary] == NO))
+        return;
     
     UIImagePickerController *mediaUI = [[UIImagePickerController alloc] init];
     mediaUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -71,24 +68,19 @@
     // trimming movies. To instead show the controls, use YES.
     mediaUI.allowsEditing = NO;
     
-    mediaUI.delegate = delegate;
+    mediaUI.delegate = self;
     
-    [controller presentModalViewController: mediaUI animated: YES];
-    return YES;
-}
-
-- (IBAction)buttonTouched:(id)sender {
-    [self startMediaBrowserFromViewController:self usingDelegate:self];
+    [self presentModalViewController: mediaUI animated: YES];
 }
 
 // UIImagePickerControllerDelegate implementation
 
-/*
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [[picker parentViewController] dismissModalViewControllerAnimated: YES];
     [picker release];
 }
- */
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
@@ -97,15 +89,13 @@
     if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0)
         == kCFCompareEqualTo) {
         
-        UIImage *myImage = (UIImage *) [info objectForKey:
-                                     UIImagePickerControllerOriginalImage];
+        UIImage *myImage = (UIImage *) [info objectForKey: UIImagePickerControllerOriginalImage];
         
-        // TODO: do something wz my image
+        self.imageView1.image = myImage;
     }
-    [[picker parentViewController] dismissModalViewControllerAnimated: YES];
+
+    [picker.presentingViewController dismissModalViewControllerAnimated: YES];
     [picker release];
 }
 
 @end
-
-
