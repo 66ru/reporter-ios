@@ -8,6 +8,7 @@
 
 #import "MessageViewController.h"
 
+//todo: implement https://github.com/AlanQuatermain/AQGridView
 
 @implementation MessageViewController
 @synthesize textCell, message;

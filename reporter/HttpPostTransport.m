@@ -21,7 +21,7 @@
         UIImage *image = [message.photos objectAtIndex:0];
         NSData *imageData = nil;
         if (message.photos.count > 0) {
-            imageData = UIImageJPEGRepresentation(image, 90);
+            imageData = UIImageJPEGRepresentation(image, 90); //todo: check: is this heavy function?
         }
         NSURLRequest *urlRequest = [self formPOSTFileDataRequestWithURLWithVariables:uploadUrl data:imageData fileName:@"1.txt" variables:dictionary];
         urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
