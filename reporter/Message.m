@@ -19,8 +19,17 @@
 
 - (id)initWithCoder:(NSCoder *)coder {
     text = [[coder decodeObjectForKey:@"MReporterMessageText"] retain];
-    photos = [[coder decodeObjectForKey:@"MReporterMessageTextPhotos"] retain];
+    photos = [[coder decodeObjectForKey:@"MReporterMessageText"] retain];
     return self;
+}
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    NSLog(@"hear");
+    if ([keyPath isEqual:@"messageText"]) {
+        NSString* changedName = [change objectForKey:NSKeyValueChangeNewKey];
+        // do something with the changedName - call a method or update the UI here
+        self.text = changedName;
+    }
 }
 
 @end

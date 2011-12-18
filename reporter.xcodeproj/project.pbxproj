@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77B304BE149DF01C005B0F61 /* Persistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B304BD149DF01C005B0F61 /* Persistence.m */; };
+		77B304C8149DFCF7005B0F61 /* MessageTextEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B304C6149DFCF7005B0F61 /* MessageTextEditViewController.m */; };
+		77B304C9149DFCF7005B0F61 /* MessageTextEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77B304C7149DFCF7005B0F61 /* MessageTextEditViewController.xib */; };
 		A8A89861149DA86400F95FAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89860149DA86400F95FAE /* UIKit.framework */; };
 		A8A89863149DA86400F95FAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89862149DA86400F95FAE /* Foundation.framework */; };
 		A8A89865149DA86400F95FAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89864149DA86400F95FAE /* CoreGraphics.framework */; };
@@ -20,6 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77B304BC149DF01C005B0F61 /* Persistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Persistence.h; sourceTree = "<group>"; };
+		77B304BD149DF01C005B0F61 /* Persistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Persistence.m; sourceTree = "<group>"; };
+		77B304C5149DFCF7005B0F61 /* MessageTextEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTextEditViewController.h; sourceTree = "<group>"; };
+		77B304C6149DFCF7005B0F61 /* MessageTextEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTextEditViewController.m; sourceTree = "<group>"; };
+		77B304C7149DFCF7005B0F61 /* MessageTextEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTextEditViewController.xib; sourceTree = "<group>"; };
 		A8A8985C149DA86400F95FAE /* reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A89860149DA86400F95FAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A8A89862149DA86400F95FAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -83,6 +91,8 @@
 		A8A89866149DA86400F95FAE /* reporter */ = {
 			isa = PBXGroup;
 			children = (
+				77B304BC149DF01C005B0F61 /* Persistence.h */,
+				77B304BD149DF01C005B0F61 /* Persistence.m */,
 				A8A89898149DC24100F95FAE /* Cells */,
 				A8A8986F149DA86400F95FAE /* AppDelegate.h */,
 				A8A89870149DA86400F95FAE /* AppDelegate.m */,
@@ -91,6 +101,9 @@
 				A8A89878149DABEF00F95FAE /* Message.m */,
 				A8A89893149DB37A00F95FAE /* MessageViewController.h */,
 				A8A89894149DB37A00F95FAE /* MessageViewController.m */,
+				77B304C5149DFCF7005B0F61 /* MessageTextEditViewController.h */,
+				77B304C6149DFCF7005B0F61 /* MessageTextEditViewController.m */,
+				77B304C7149DFCF7005B0F61 /* MessageTextEditViewController.xib */,
 			);
 			path = reporter;
 			sourceTree = "<group>";
@@ -168,6 +181,7 @@
 			files = (
 				A8A8986B149DA86400F95FAE /* InfoPlist.strings in Resources */,
 				A8A89897149DC21700F95FAE /* TextCell.xib in Resources */,
+				77B304C9149DFCF7005B0F61 /* MessageTextEditViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +197,8 @@
 				A8A89879149DABEF00F95FAE /* Message.m in Sources */,
 				A8A89895149DB37A00F95FAE /* MessageViewController.m in Sources */,
 				A8A8989B149DC28000F95FAE /* TextCell.m in Sources */,
+				77B304BE149DF01C005B0F61 /* Persistence.m in Sources */,
+				77B304C8149DFCF7005B0F61 /* MessageTextEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +300,7 @@
 				A8A89876149DA86400F95FAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

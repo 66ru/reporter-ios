@@ -7,7 +7,7 @@
 //
 
 #import "MessageViewController.h"
-
+#import "MessageTextEditViewController.h"
 
 @implementation MessageViewController
 @synthesize textCell, message;
@@ -127,6 +127,8 @@
             [[NSBundle mainBundle] loadNibNamed:@"TextCell" owner:self options:nil];
             cell = textCell;
             self.textCell = nil;
+            
+            cell.textLabel.text = message.text;
         }
         
         return cell;
@@ -188,6 +190,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.section == 0 && indexPath.row == 0) {
+        MessageTextEditViewController *textEditorController = [[MessageTextEditViewController alloc] initWithText: message.text delegate:self];
+        Message *message1 = [[Message alloc] init];
+        [textEditorController addObserver: message forKeyPath:@"messageText" options:NSKeyValueObservingOptionNew context:NULL];
+        
+        [self.navigationController pushViewController:textEditorController animated:YES];
+        [message1 release];
+    }
     if (indexPath.row == [self tableView:tableView numberOfRowsInSection:indexPath.section]-1) {
         //todo: write real implementatiob
         [self addPhoto];
