@@ -126,6 +126,7 @@
 	
     
 	popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+
 	[popupQuery showInView:self.view];
 	[popupQuery release];
 }
@@ -133,9 +134,9 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     BOOL gotCamera = [UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera];
 	
-    if (gotCamera && buttonIndex == 0) {
+    if ((gotCamera && buttonIndex == 0)) {
         // TODO: открываем камеру итд
-    } else {
+    } else if((gotCamera && buttonIndex == 1) || (!gotCamera && buttonIndex == 0)) {
         [self workWithGallery];
     }
 }
