@@ -13,6 +13,7 @@
 		A8A8986B149DA86400F95FAE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A8A89869149DA86400F95FAE /* InfoPlist.strings */; };
 		A8A8986D149DA86400F95FAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A8986C149DA86400F95FAE /* main.m */; };
 		A8A89871149DA86400F95FAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A89870149DA86400F95FAE /* AppDelegate.m */; };
+		A8A89879149DABEF00F95FAE /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A89878149DABEF00F95FAE /* Message.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		A8A8986E149DA86400F95FAE /* reporter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "reporter-Prefix.pch"; sourceTree = "<group>"; };
 		A8A8986F149DA86400F95FAE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8A89870149DA86400F95FAE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A8A89877149DABEF00F95FAE /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		A8A89878149DABEF00F95FAE /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 				A8A8986F149DA86400F95FAE /* AppDelegate.h */,
 				A8A89870149DA86400F95FAE /* AppDelegate.m */,
 				A8A89867149DA86400F95FAE /* Supporting Files */,
+				A8A89877149DABEF00F95FAE /* Message.h */,
+				A8A89878149DABEF00F95FAE /* Message.m */,
 			);
 			path = reporter;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 			files = (
 				A8A8986D149DA86400F95FAE /* main.m in Sources */,
 				A8A89871149DA86400F95FAE /* AppDelegate.m in Sources */,
+				A8A89879149DABEF00F95FAE /* Message.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
