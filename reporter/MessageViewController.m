@@ -141,7 +141,17 @@
         
         return cell;
     } else {
-        return [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AddMedia2"] autorelease];
+        static NSString *CellIdentifier = @"PictureCell";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+        UIImage *image = [message.photos objectAtIndex:indexPath.row-1];
+        cell.imageView.image = image;
+        cell.textLabel.text = [NSString stringWithFormat:@"%d",indexPath.row];
+        
+        return cell;
     }
 }
 

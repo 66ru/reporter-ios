@@ -12,4 +12,17 @@
 
 @synthesize text, photos;
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.photos = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+- (void)dealloc {
+    [photos release];
+    [super dealloc];
+}
+
 @end

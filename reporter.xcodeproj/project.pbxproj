@@ -17,6 +17,7 @@
 		A8A89895149DB37A00F95FAE /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A89894149DB37A00F95FAE /* MessageViewController.m */; };
 		A8A89897149DC21700F95FAE /* TextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8A89896149DC21700F95FAE /* TextCell.xib */; };
 		A8A8989B149DC28000F95FAE /* TextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A8989A149DC28000F95FAE /* TextCell.m */; };
+		A8A8989F149DE40F00F95FAE /* Picture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8A8989E149DE40F00F95FAE /* Picture.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		A8A89896149DC21700F95FAE /* TextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCell.xib; sourceTree = "<group>"; };
 		A8A89899149DC28000F95FAE /* TextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextCell.h; sourceTree = "<group>"; };
 		A8A8989A149DC28000F95FAE /* TextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextCell.m; sourceTree = "<group>"; };
+		A8A8989E149DE40F00F95FAE /* Picture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Picture.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		A8A89866149DA86400F95FAE /* reporter */ = {
 			isa = PBXGroup;
 			children = (
+				A8A8989E149DE40F00F95FAE /* Picture.jpg */,
 				A8A89898149DC24100F95FAE /* Cells */,
 				A8A8986F149DA86400F95FAE /* AppDelegate.h */,
 				A8A89870149DA86400F95FAE /* AppDelegate.m */,
@@ -168,6 +171,7 @@
 			files = (
 				A8A8986B149DA86400F95FAE /* InfoPlist.strings in Resources */,
 				A8A89897149DC21700F95FAE /* TextCell.xib in Resources */,
+				A8A8989F149DE40F00F95FAE /* Picture.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

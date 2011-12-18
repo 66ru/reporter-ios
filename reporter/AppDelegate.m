@@ -23,7 +23,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    messageViewController = [[MessageViewController alloc] initWithStyle:UITableViewStylePlain];
+    //
+    Message *message = [[[Message alloc] init] autorelease];
+    message.text = @"mytext";
+    [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
+    [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
+    [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
+    [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
+    [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
+    //
+    
+    messageViewController = [[MessageViewController alloc] initWithMessage:message];
     navigationController = [[UINavigationController alloc] initWithRootViewController:messageViewController];
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];

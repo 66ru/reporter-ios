@@ -17,7 +17,6 @@
 
 - (id)initWithMessage:(Message *)aMessage;
 
-- (void)configureToolbarItems;
 - (void)addPhoto;
 
 @end
