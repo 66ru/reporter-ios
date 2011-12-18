@@ -77,7 +77,11 @@
 
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    [[picker parentViewController] dismissModalViewControllerAnimated: YES];
+    if(SYSTEM_VERSION_LESS_THAN(@"5.0")) {
+        [[picker parentViewController] dismissModalViewControllerAnimated: YES];
+    } else {
+        [[picker presentingViewController] dismissModalViewControllerAnimated: YES];
+    }
     [picker release];
 }
 
@@ -104,7 +108,7 @@
     UIActionSheet *popupQuery = nil;
     if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]==YES) {
          popupQuery = [[UIActionSheet alloc] 
-                                     initWithTitle:@"Title" 
+                                     initWithTitle:@"Выбрать источник" 
                                      delegate:self 
                                      cancelButtonTitle:@"Отмена" 
                                      destructiveButtonTitle:nil 
@@ -112,7 +116,7 @@
                                      nil];
     } else {
          popupQuery = [[UIActionSheet alloc] 
-                                     initWithTitle:@"Title" 
+                                     initWithTitle:@"Выбрать источник" 
                                      delegate:self 
                                      cancelButtonTitle:@"Отмена" 
                                      destructiveButtonTitle:nil
