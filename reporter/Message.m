@@ -19,7 +19,7 @@
 
 - (id)initWithCoder:(NSCoder *)coder {
     text = [[coder decodeObjectForKey:@"MReporterMessageText"] retain];
-    photos = [[coder decodeObjectForKey:@"MReporterMessageText"] retain];
+    photos = [[coder decodeObjectForKey:@"MReporterMessageTextPhotos"] retain];
     return self;
 }
 

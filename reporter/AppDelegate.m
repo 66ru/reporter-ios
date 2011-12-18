@@ -6,8 +6,6 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Message.h"
-#import "Persistence.h"
 #import "AppDelegate.h"
 
 @implementation AppDelegate
@@ -18,6 +16,7 @@
 {
     [messageViewController release];
     [navigationController release];
+    [persistence release];
     
     [_window release];
     [super dealloc];
@@ -25,13 +24,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    messageViewController = [[MessageViewController alloc] initWithStyle:UITableViewStylePlain];
+    persistence = [[Persistence alloc] init];
+    
+    messageViewController = [[MessageViewController alloc] initWithMessage: [persistence getObject]];
     navigationController = [[UINavigationController alloc] initWithRootViewController:messageViewController];
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    Message *message = [[[Persistence alloc] init] getObject];
+    
     self.window.rootViewController = navigationController;
     return YES;
 }
@@ -46,11 +47,8 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    Message *message = [[Message alloc] init];
-    [message setText:@"Message text"];
-    NSMutableArray *photos = [[NSMutableArray alloc] init];
-    [message setPhotos:photos];
-    [[[Persistence alloc] init] save:message];
+    [persistence save: messageViewController.message];
+
     /*
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
@@ -66,8 +64,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    Message *message = [[[Persistence alloc] init] getObject];
-    NSLog(message.text);
+    messageViewController.message = [persistence getObject];
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
@@ -75,6 +72,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    [persistence save: messageViewController.message];
     /*
      Called when the application is about to terminate.
      Save data if appropriate.

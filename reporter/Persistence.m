@@ -21,7 +21,6 @@
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     dataFilePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"data.archive"]];
-
   
     return self;
 }
@@ -70,5 +69,6 @@
     
     [dataFilePath release];
     [super dealloc];
+    
 }
 @end
