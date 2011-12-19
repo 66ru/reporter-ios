@@ -31,9 +31,17 @@
     self = [self initWithStyle:UITableViewStylePlain];
     if (self) {
         self.message = aMessage;
+        
+        [message addObserver:self forKeyPath:@"text" options:0 context:nil];
+        // todo: observing not work with NSMutableArray
+        //[message addObserver:self forKeyPath:@"photos" options:(NSKeyValueChangeInsertion|NSKeyValueChangeRemoval) context:nil];
     }
     
     return self;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    [self.tableView reloadData];
 }
 
 - (void)sendMessage {

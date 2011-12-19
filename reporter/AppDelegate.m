@@ -37,6 +37,9 @@
     //
     persistence = [[Persistence alloc] init];
     Message *message = [persistence getObject];
+    if (message == nil) {
+        message = [[[Message alloc] init] autorelease];
+    }
     
     messageViewController = [[MessageViewController alloc] initWithMessage:message];
     navigationController = [[UINavigationController alloc] initWithRootViewController:messageViewController];
