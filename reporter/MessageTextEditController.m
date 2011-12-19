@@ -28,8 +28,15 @@
     if (self) {
         self.message = aMessage;
         
+        UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Сохранить" style:UIBarButtonItemStyleDone target:self action:@selector(saveText)];
+        self.navigationItem.rightBarButtonItem = saveButton;
+        [saveButton release];
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Отменить" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+        self.navigationItem.leftBarButtonItem = cancelButton;
+        [cancelButton release];
+        
         textField = [[UITextView alloc] init];
-        textField.text = message.text; // todo: save textField.text with persistance and restore
+        textField.text = message.text;
         textField.scrollEnabled = YES;
         textField.editable = YES;
         textField.font = [UIFont systemFontOfSize:17];
@@ -37,6 +44,15 @@
         [textField becomeFirstResponder];
     }
     return self;
+}
+
+- (void)saveText {
+    self.message.text = textField.text;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)goBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
