@@ -34,7 +34,7 @@
         
         [message addObserver:self forKeyPath:@"text" options:0 context:nil];
         // todo: observing not work with NSMutableArray
-        //[message addObserver:self forKeyPath:@"photos" options:(NSKeyValueChangeInsertion|NSKeyValueChangeRemoval) context:nil];
+        [message addObserver:self forKeyPath:@"photos" options:0 context:nil];
     }
     
     return self;

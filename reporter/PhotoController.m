@@ -115,7 +115,7 @@
             needToSavePhoto = NO;
         }
         
-        [message.photos addObject:myImage];
+        [[message mutableArrayValueForKey:@"photos"] addObject:myImage];
     }
     
     [picker.presentingViewController dismissModalViewControllerAnimated: YES];

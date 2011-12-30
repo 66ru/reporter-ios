@@ -8,8 +8,6 @@
 
 #import "MessageTextEditController.h"
 
-// todo: add 2 bar buttons: Cancel (action like back button) and Save (copy textField.text to message.text and return to main view)
-
 @implementation MessageTextEditController
 @synthesize message;
 
