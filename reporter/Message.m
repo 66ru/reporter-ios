@@ -17,6 +17,7 @@
     self = [super init];
     if (self) {
         self.photos = [[NSMutableArray alloc] init];
+        self.text = @"";
     }
     return self;
 }

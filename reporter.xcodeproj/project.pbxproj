@@ -18,7 +18,6 @@
 		A8A89895149DB37A00F95FAE /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A89894149DB37A00F95FAE /* MessageViewController.m */; };
 		A8A89897149DC21700F95FAE /* TextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8A89896149DC21700F95FAE /* TextCell.xib */; };
 		A8A8989B149DC28000F95FAE /* TextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A8989A149DC28000F95FAE /* TextCell.m */; };
-		A8A8989F149DE40F00F95FAE /* Picture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8A8989E149DE40F00F95FAE /* Picture.jpg */; };
 		A8A898A2149DECEE00F95FAE /* Persistence.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A898A1149DECEE00F95FAE /* Persistence.m */; };
 		A8A898A5149DF3A200F95FAE /* TransportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A898A4149DF3A200F95FAE /* TransportManager.m */; };
 		A8A898AC149DF61400F95FAE /* HttpPostTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A898AB149DF61300F95FAE /* HttpPostTransport.m */; };
@@ -28,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		2669D7BF149DCDE200B04EBC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A85C380714B0492F0026EE42 /* UIImageNSCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageNSCoding.h; sourceTree = "<group>"; };
+		A85C380814B0496C0026EE42 /* versionCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = versionCheck.h; sourceTree = "<group>"; };
 		A8A8985C149DA86400F95FAE /* reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A89860149DA86400F95FAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A8A89862149DA86400F95FAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -45,7 +46,6 @@
 		A8A89896149DC21700F95FAE /* TextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCell.xib; sourceTree = "<group>"; };
 		A8A89899149DC28000F95FAE /* TextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextCell.h; sourceTree = "<group>"; };
 		A8A8989A149DC28000F95FAE /* TextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextCell.m; sourceTree = "<group>"; };
-		A8A8989E149DE40F00F95FAE /* Picture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Picture.jpg; sourceTree = "<group>"; };
 		A8A898A0149DECED00F95FAE /* Persistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Persistence.h; sourceTree = "<group>"; };
 		A8A898A1149DECEE00F95FAE /* Persistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Persistence.m; sourceTree = "<group>"; };
 		A8A898A3149DF3A200F95FAE /* TransportManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransportManager.h; sourceTree = "<group>"; };
@@ -107,7 +107,6 @@
 				A8A8986F149DA86400F95FAE /* AppDelegate.h */,
 				A8A89870149DA86400F95FAE /* AppDelegate.m */,
 				A8A89898149DC24100F95FAE /* Cells */,
-				A8A8989E149DE40F00F95FAE /* Picture.jpg */,
 				A8A898A0149DECED00F95FAE /* Persistence.h */,
 				A8A898A1149DECEE00F95FAE /* Persistence.m */,
 				A8A89877149DABEF00F95FAE /* Message.h */,
@@ -123,6 +122,8 @@
 				A8ABFA95149E576F00694D32 /* MessageTextEditController.h */,
 				A8ABFA96149E576F00694D32 /* MessageTextEditController.m */,
 				A8A89867149DA86400F95FAE /* Supporting Files */,
+				A85C380714B0492F0026EE42 /* UIImageNSCoding.h */,
+				A85C380814B0496C0026EE42 /* versionCheck.h */,
 			);
 			path = reporter;
 			sourceTree = "<group>";
@@ -200,7 +201,6 @@
 			files = (
 				A8A8986B149DA86400F95FAE /* InfoPlist.strings in Resources */,
 				A8A89897149DC21700F95FAE /* TextCell.xib in Resources */,
-				A8A8989F149DE40F00F95FAE /* Picture.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +287,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "reporter/reporter-Prefix.pch";
 				INFOPLIST_FILE = "reporter/reporter-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -298,6 +299,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "reporter/reporter-Prefix.pch";
 				INFOPLIST_FILE = "reporter/reporter-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

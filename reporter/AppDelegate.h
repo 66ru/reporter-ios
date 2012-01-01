@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIImageNSCoding.h"
 #import "MessageViewController.h"
 #import "Persistence.h"
 #import "Message.h"

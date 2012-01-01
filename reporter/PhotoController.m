@@ -118,8 +118,7 @@
         [[message mutableArrayValueForKey:@"photos"] addObject:myImage];
     }
     
-    [picker.presentingViewController dismissModalViewControllerAnimated: YES];
-    [picker release];
+    [self imagePickerControllerDidCancel:picker];
 }
 
 @end
