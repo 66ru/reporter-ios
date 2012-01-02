@@ -26,15 +26,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //
-    /*Message *message = [[[Message alloc] init] autorelease];
-    message.text = @"mytext";
-    [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
-    [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
-    [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
-    [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];
-    [message.photos addObject:[UIImage imageWithContentsOfFile:@"/Users/m8rge/Documents/reporter/reporter/Picture.jpg"]];*/
-    //
     persistence = [[Persistence alloc] init];
     Message *message = [persistence getObject];
     if (message == nil) {

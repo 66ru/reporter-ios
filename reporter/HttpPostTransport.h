@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIImprovedImage.h"
 #import "Message.h"
 
 @protocol HttpPostTransportDelegate;

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2669D7C0149DCDE200B04EBC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2669D7BF149DCDE200B04EBC /* MobileCoreServices.framework */; };
+		A89C2C2C14B20378004FEF25 /* UIImprovedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A89C2C2B14B20378004FEF25 /* UIImprovedImage.m */; };
 		A8A89861149DA86400F95FAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89860149DA86400F95FAE /* UIKit.framework */; };
 		A8A89863149DA86400F95FAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89862149DA86400F95FAE /* Foundation.framework */; };
 		A8A89865149DA86400F95FAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89864149DA86400F95FAE /* CoreGraphics.framework */; };
@@ -27,8 +28,9 @@
 
 /* Begin PBXFileReference section */
 		2669D7BF149DCDE200B04EBC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		A85C380714B0492F0026EE42 /* UIImageNSCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageNSCoding.h; sourceTree = "<group>"; };
 		A85C380814B0496C0026EE42 /* versionCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = versionCheck.h; sourceTree = "<group>"; };
+		A89C2C2A14B20378004FEF25 /* UIImprovedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImprovedImage.h; sourceTree = "<group>"; };
+		A89C2C2B14B20378004FEF25 /* UIImprovedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImprovedImage.m; sourceTree = "<group>"; };
 		A8A8985C149DA86400F95FAE /* reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A89860149DA86400F95FAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A8A89862149DA86400F95FAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -122,8 +124,9 @@
 				A8ABFA95149E576F00694D32 /* MessageTextEditController.h */,
 				A8ABFA96149E576F00694D32 /* MessageTextEditController.m */,
 				A8A89867149DA86400F95FAE /* Supporting Files */,
-				A85C380714B0492F0026EE42 /* UIImageNSCoding.h */,
 				A85C380814B0496C0026EE42 /* versionCheck.h */,
+				A89C2C2A14B20378004FEF25 /* UIImprovedImage.h */,
+				A89C2C2B14B20378004FEF25 /* UIImprovedImage.m */,
 			);
 			path = reporter;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				A8A898AC149DF61400F95FAE /* HttpPostTransport.m in Sources */,
 				A8ABFA8B149E3D5A00694D32 /* PhotoController.m in Sources */,
 				A8ABFA97149E577000694D32 /* MessageTextEditController.m in Sources */,
+				A89C2C2C14B20378004FEF25 /* UIImprovedImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

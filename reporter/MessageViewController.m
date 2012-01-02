@@ -169,7 +169,7 @@
         if (cell == nil) {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         }
-        UIImage *image = [message.photos objectAtIndex:indexPath.row-1];
+        UIImprovedImage *image = [message.photos objectAtIndex:indexPath.row-1];
         cell.imageView.image = image;
         cell.textLabel.text = [NSString stringWithFormat:@"%d",indexPath.row];
         

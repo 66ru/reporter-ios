@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <MobileCoreServices/UTCoreTypes.h>
+#import "UIImprovedImage.h"
 #import "Message.h"
 #import "versionCheck.h"
 

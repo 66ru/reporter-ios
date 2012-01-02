@@ -102,23 +102,25 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [self imagePickerControllerDidCancel:picker];
+
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
     
     // Handle a still image capture
-    if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0)
-        == kCFCompareEqualTo) {
+    if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
         
-        UIImage *myImage = (UIImage *) [info objectForKey: UIImagePickerControllerOriginalImage];
+        NSData *jpegImage = UIImageJPEGRepresentation([info objectForKey: UIImagePickerControllerOriginalImage], 0.9);
+        UIImprovedImage *improvedImage = [[[UIImprovedImage alloc] initWithJpegData:jpegImage] autorelease];
         
         if (needToSavePhoto) {
-            UIImageWriteToSavedPhotosAlbum(myImage, nil, nil , nil);
+            UIImageWriteToSavedPhotosAlbum(improvedImage, nil, nil , nil);
             needToSavePhoto = NO;
         }
         
-        [[message mutableArrayValueForKey:@"photos"] addObject:myImage];
+        // call not message.photos, but mutableArrayValueForKey for get KVO compliance object
+        [[message mutableArrayValueForKey:@"photos"] addObject:improvedImage];
     }
     
-    [self imagePickerControllerDidCancel:picker];
 }
 
 @end
