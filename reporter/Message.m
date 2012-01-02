@@ -9,8 +9,6 @@
 #import "Message.h"
 
 @implementation Message
-// todo: send modelChanged notification
-// NSNotificationCenter: http://developer.apple.com/library/ios/#samplecode/KeyboardAccessory/Listings/Classes_ViewController_m.html
 @synthesize text, photos;
 
 - (id)init {
