@@ -79,4 +79,9 @@
     return urlRequest;
 }
 
+- (void)dealloc {
+    [urlConnection release];
+    [super dealloc];
+}
+
 @end

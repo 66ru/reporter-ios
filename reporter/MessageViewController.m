@@ -9,7 +9,6 @@
 #import "MessageViewController.h"
 
 //todo: implement https://github.com/AlanQuatermain/AQGridView
-//todo: implement table edit (row deleting)
 
 @implementation MessageViewController
 @synthesize textCell, message;
@@ -61,7 +60,7 @@
 - (void)dealloc {
     [photoController release];
     [message release];
-    [TextCell release];
+    [textCell release];
     [super dealloc];
 }
 

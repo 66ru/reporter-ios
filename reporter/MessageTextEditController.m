@@ -85,6 +85,7 @@
 
 - (void)dealloc {
     [textField release];
+    [message release];
     [super dealloc];
 }
 

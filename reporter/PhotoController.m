@@ -35,7 +35,7 @@
 }
 
 - (void)showAddPhotoDialog {
-    UIActionSheet *popupQuery = nil;
+    UIActionSheet *popupQuery;
     if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]==YES) {
         popupQuery = [[UIActionSheet alloc] 
                       initWithTitle:@"Выберите источник" 

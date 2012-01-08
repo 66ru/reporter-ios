@@ -22,6 +22,7 @@
 
 - (void)dealloc {
     [photos release];
+    [text release];
     [super dealloc];
 }
 
