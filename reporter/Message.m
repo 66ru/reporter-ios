@@ -14,7 +14,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.photos = [[NSMutableArray alloc] init];
+        self.photos = [[[NSMutableArray alloc] init] autorelease];
         self.text = @"";
     }
     return self;
