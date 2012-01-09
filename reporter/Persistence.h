@@ -13,8 +13,6 @@
     NSString *dataFilePath;
 }
 
-@property (retain) NSString *dataFilePath;
-
 - (void)save: (id)Object;
 - (id)getObject;
 

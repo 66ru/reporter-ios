@@ -65,21 +65,21 @@
     if (([UIImagePickerController isSourceTypeAvailable:imagePickerSourceType] == NO))
         return;
     
-    UIImagePickerController *mediaUI = [[UIImagePickerController alloc] init];
-    mediaUI.sourceType = imagePickerSourceType;
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = imagePickerSourceType;
     
     // Displays saved pictures and movies, if both are available, from the
     // Camera Roll album.
-    mediaUI.mediaTypes = [[[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil] autorelease];
+    picker.mediaTypes = [NSArray arrayWithObjects: (NSString *) kUTTypeImage, nil];
     
     // Hides the controls for moving & scaling pictures, or for
     // trimming movies. To instead show the controls, use YES.
-    mediaUI.allowsEditing = NO;
+    picker.allowsEditing = NO;
     
-    mediaUI.delegate = self;
+    picker.delegate = self;
     
-    [self.uiViewController presentModalViewController: mediaUI animated: YES];
-    [mediaUI release];
+    [self.uiViewController presentModalViewController: picker animated: YES];
+    [picker release];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -99,7 +99,6 @@
     } else {
         [[picker presentingViewController] dismissModalViewControllerAnimated: YES];
     }
-    [picker release];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -118,7 +117,7 @@
             needToSavePhoto = NO;
         }
         
-        // call not message.photos, but mutableArrayValueForKey for get KVO compliance object
+        // call not message.photos, but mutableArrayValueForKey for KVO compliance object
         [[message mutableArrayValueForKey:@"photos"] addObject:improvedImage];
     }
     

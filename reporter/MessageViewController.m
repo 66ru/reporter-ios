@@ -204,7 +204,8 @@
         [self.navigationController pushViewController:messageTextEditController animated:YES];
     }
     if (indexPath.row == [self tableView:tableView numberOfRowsInSection:indexPath.section]-1) {
-        photoController = [[PhotoController alloc] initWithParentController:self message:message];
+        if (photoController == nil)
+            photoController = [[PhotoController alloc] initWithParentController:self message:message];
         [photoController showAddPhotoDialog];
     }
     // Navigation logic may go here. Create and push another view controller.

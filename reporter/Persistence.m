@@ -10,7 +10,7 @@
 
 @implementation Persistence
 
-@synthesize dataFilePath;
+//@synthesize dataFilePath;
 
 - (id)init {
     self = [super init];
@@ -40,8 +40,9 @@
     
     if(result) {
         NSLog(@"saved");
+    } else {
+        NSLog(@"not been saved");
     }
-    else NSLog(@"not been saved");
     
     [archiver release];
     
@@ -49,15 +50,13 @@
 
 - (id)getObject {
 
-    id object;
-    
     NSData *data;
     NSKeyedUnarchiver *unarchiver;
     
     data = [NSData dataWithContentsOfFile:dataFilePath];
     unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
 
-    object = [unarchiver decodeObjectForKey:@"MReporter"];
+    id object = [unarchiver decodeObjectForKey:@"MReporter"];
     
     [unarchiver finishDecoding];
     [unarchiver release];
@@ -66,8 +65,8 @@
 }
 
 - (void)dealloc {
-    
     [dataFilePath release];
     [super dealloc];
 }
+
 @end

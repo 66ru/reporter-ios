@@ -6,8 +6,6 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-// todo: before release check memory allocation and releases!
-
 #import "AppDelegate.h"
 
 @implementation AppDelegate
