@@ -81,8 +81,19 @@
     [httpPostTransport beginUpload];
 }
 
+- (void)delayAndHideToolbar {
+    NSTimer *timer = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(timerFireMethod:) userInfo:nil repeats:NO];
+    NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+    [runLoop addTimer:timer forMode:NSDefaultRunLoopMode];
+}
+
+- (void)timerFireMethod:(NSTimer*)theTimer {
+    self.navigationController.toolbarHidden = YES;
+}
+
 - (void)requestFailed:(ASIHTTPRequest *)request {
     progressLabel.text = @"Ошибка при отправке";
+    [self delayAndHideToolbar];
 }
 
 - (void)requestStarted:(ASIHTTPRequest *)request {
@@ -91,13 +102,7 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request {
     progressLabel.text = @"Отправлено";
-    NSTimer *timer = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(timerFireMethod:) userInfo:nil repeats:NO];
-    NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-    [runLoop addTimer:timer forMode:NSDefaultRunLoopMode];
-}
-
-- (void)timerFireMethod:(NSTimer*)theTimer {
-    self.navigationController.toolbarHidden = YES;
+    [self delayAndHideToolbar];
 }
 
 #pragma mark - View lifecycle
