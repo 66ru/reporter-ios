@@ -26,7 +26,7 @@
         httpRequest = [ASIFormDataRequest requestWithURL:uploadUrl];
         httpRequest.delegate = self.requestDelegate;
         [httpRequest setPostValue:message.text forKey:@"text"];
-        for(uint i=0; i<message.photos.count; i++) {
+        for(NSUInteger i=0; i<message.photos.count; i++) {
             UIImprovedImage *image = [message.photos objectAtIndex:i];
             [httpRequest setData:image.jpgData withFileName:@"myphoto.jpg" andContentType:@"image/jpeg" forKey:@"photo[]"];
         }

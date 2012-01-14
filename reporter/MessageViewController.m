@@ -102,6 +102,12 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request {
     progressLabel.text = @"Отправлено";
+    while (message.photos.count) {
+        [message.photos removeObjectAtIndex:0];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    message.text = @"";
     [self delayAndHideToolbar];
 }
 
