@@ -8,8 +8,8 @@
 
 #import "HttpPostTransport.h"
 
-@implementation HttpPostTransport 
-@synthesize progressDelegate;
+@implementation HttpPostTransport
+@synthesize progressDelegate, requestDelegate;
 
 - (id)initWithMessage:(Message *)aMessage {
     self = [super init];
@@ -24,40 +24,20 @@
     if (message != nil) {
         NSURL *uploadUrl = [NSURL URLWithString:@"http://localhost/reporter.php"];
         httpRequest = [ASIFormDataRequest requestWithURL:uploadUrl];
-        httpRequest.delegate = self;
+        httpRequest.delegate = self.requestDelegate;
         [httpRequest setPostValue:@"Ben" forKey:@"first_name"];
         [httpRequest setPostValue:@"Copsey" forKey:@"last_name"];
         UIImprovedImage *image = [message.photos objectAtIndex:0];
         [httpRequest setData:image.jpgData withFileName:@"myphoto.jpg" andContentType:@"image/jpeg" forKey:@"photo[]"];
-        httpRequest.uploadProgressDelegate = progressDelegate;
+        httpRequest.uploadProgressDelegate = self.progressDelegate;
         [httpRequest startAsynchronous];
 //        httpRequest.
     }
 }
 
-- (void)request:(ASIHTTPRequest *)request didSendBytes:(long long int)bytes {
-    //To change the template use AppCode | Preferences | File Templates.
-}
-
-- (void)requestFailed:(ASIHTTPRequest *)request {
-    //To change the template use AppCode | Preferences | File Templates.
-
-}
-
-- (void)requestStarted:(ASIHTTPRequest *)request {
-    //To change the template use AppCode | Preferences | File Templates.
-
-}
-
-- (void)requestFinished:(ASIHTTPRequest *)request {
-    //To change the template use AppCode | Preferences | File Templates.
-
-}
-
 - (void)dealloc {
     [httpRequest release];
     [message release];
-    [progressDelegate release];
     [super dealloc];
 }
 

@@ -42,57 +42,82 @@
     [self.tableView reloadData];
 }
 
+#pragma mark SendMessage
+
 - (void)sendMessage {
-//    UIBarButtonItem *flexibleSpaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    CGRect screenBounds = [[UIScreen mainScreen] bounds];
-    CGFloat clientWidth = screenBounds.size.width-24;
-    UIView *progressViewWithText = [[UIView alloc] initWithFrame:CGRectMake(0, 0, clientWidth, 25)];
-    UILabel *progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, clientWidth, 15)];
-    progressLabel.text = @"1 of 10";
-    progressLabel.textAlignment = UITextAlignmentCenter;
-    progressLabel.textColor = [UIColor whiteColor];
-    progressLabel.backgroundColor = [UIColor clearColor];
-    progressLabel.shadowColor = [UIColor darkGrayColor];
-    progressLabel.shadowOffset = CGSizeMake(0, -1);
-    progressLabel.font = [UIFont boldSystemFontOfSize:13];
-    [progressViewWithText addSubview:progressLabel];
-    [progressLabel release];
-    UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake((clientWidth-clientWidth*2/3)/2, 16, clientWidth*2/3, 9)];
-    progressView.progressViewStyle = UIProgressViewStyleBar;
-    [progressViewWithText addSubview:progressView];
-    UIBarButtonItem *progressViewButtonItem = [[UIBarButtonItem alloc] initWithCustomView:progressViewWithText];
-    [progressViewWithText release];
+    if (self.toolbarItems.count == 0) {
+        CGRect screenBounds = [[UIScreen mainScreen] bounds];
+        CGFloat clientWidth = screenBounds.size.width-24;
+        UIView *progressViewWithText = [[UIView alloc] initWithFrame:CGRectMake(0, 0, clientWidth, 25)];
+        progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, -2, clientWidth, 15)];
+        progressLabel.text = @"Отправка";
+        progressLabel.textAlignment = UITextAlignmentCenter;
+        progressLabel.textColor = [UIColor whiteColor];
+        progressLabel.backgroundColor = [UIColor clearColor];
+        progressLabel.shadowColor = [UIColor darkGrayColor];
+        progressLabel.shadowOffset = CGSizeMake(0, -1);
+        progressLabel.font = [UIFont boldSystemFontOfSize:13];
+        [progressViewWithText addSubview:progressLabel];
 
-    // Set our toolbar items
-    self.toolbarItems = [
-            NSArray arrayWithObjects:
-                    progressViewButtonItem,
-                    nil
-    ];
+        progressView = [[UIProgressView alloc] initWithFrame:CGRectMake((clientWidth-clientWidth*2/3)/2, 16, clientWidth*2/3, 9)];
+        progressView.progressViewStyle = UIProgressViewStyleBar;
+        [progressViewWithText addSubview:progressView];
+        UIBarButtonItem *progressViewButtonItem = [[UIBarButtonItem alloc] initWithCustomView:progressViewWithText];
+        [progressViewWithText release];
 
-    [progressViewButtonItem release];
+        // Set our toolbar items
+        self.toolbarItems = [
+                NSArray arrayWithObjects:
+                        progressViewButtonItem,
+                        nil
+        ];
 
-    self.navigationController.toolbarHidden = NO;
-    HttpPostTransport *httpPostTransport = [[HttpPostTransport alloc] initWithMessage:message];
-    httpPostTransport.progressDelegate = progressView;
-    [progressView release];
+        [progressViewButtonItem release];
+    }
+
+    httpPostTransport = [[HttpPostTransport alloc] initWithMessage:message];
+    httpPostTransport.progressDelegate = (id<ASIProgressDelegate>)progressView;
+    httpPostTransport.requestDelegate = self;
     [httpPostTransport beginUpload];
 }
+
+- (void)requestFailed:(ASIHTTPRequest *)request {
+    progressLabel.text = @"Ошибка при отправке";
+}
+
+- (void)requestStarted:(ASIHTTPRequest *)request {
+    self.navigationController.toolbarHidden = NO;
+}
+
+- (void)requestFinished:(ASIHTTPRequest *)request {
+    progressLabel.text = @"Отправлено";
+    NSTimer *timer = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(timerFireMethod:) userInfo:nil repeats:NO];
+    NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+    [runLoop addTimer:timer forMode:NSDefaultRunLoopMode];
+}
+
+- (void)timerFireMethod:(NSTimer*)theTimer {
+    self.navigationController.toolbarHidden = YES;
+}
+
+#pragma mark - View lifecycle
 
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
+
     // Release any cached data, images, etc that aren't in use.
 }
-
-#pragma mark - View lifecycle
 
 - (void)dealloc {
     [photoController release];
     [message release];
     [textCell release];
+    [httpPostTransport release];
+    [progressLabel release];
+    [progressView release];
+    
     [super dealloc];
 }
 

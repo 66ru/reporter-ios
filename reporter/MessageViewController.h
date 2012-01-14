@@ -13,15 +13,16 @@
 #import "PhotoController.h"
 #import "MessageTextEditController.h"
 
-@interface MessageViewController : UITableViewController { //todo: implement TransportManagerDelegate
+@interface MessageViewController : UITableViewController <ASIHTTPRequestDelegate> { //todo: implement TransportManagerDelegate
     PhotoController *photoController;
+    UILabel *progressLabel;
+    UIProgressView *progressView;
+    HttpPostTransport *httpPostTransport;
 }
 
 @property (retain, nonatomic) IBOutlet TextCell *textCell;
 @property (retain)Message *message;
 
 - (id)initWithMessage:(Message *)aMessage;
-
-//- (void)addPhoto;
 
 @end

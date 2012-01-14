@@ -11,12 +11,13 @@
 #import "Message.h"
 #import "ASIFormDataRequest.h"
 
-@interface HttpPostTransport : NSObject <ASIProgressDelegate, ASIHTTPRequestDelegate> {
+@interface HttpPostTransport : NSObject {
     ASIFormDataRequest *httpRequest;
     Message *message;
 }
 
 @property (assign)id<ASIProgressDelegate> progressDelegate;
+@property (assign)id<ASIHTTPRequestDelegate> requestDelegate;
 
 - (id)initWithMessage:(Message *)aMessage;
 
