@@ -25,13 +25,13 @@
         NSURL *uploadUrl = [NSURL URLWithString:@"http://localhost/reporter.php"];
         httpRequest = [ASIFormDataRequest requestWithURL:uploadUrl];
         httpRequest.delegate = self.requestDelegate;
-        [httpRequest setPostValue:@"Ben" forKey:@"first_name"];
-        [httpRequest setPostValue:@"Copsey" forKey:@"last_name"];
-        UIImprovedImage *image = [message.photos objectAtIndex:0];
-        [httpRequest setData:image.jpgData withFileName:@"myphoto.jpg" andContentType:@"image/jpeg" forKey:@"photo[]"];
+        [httpRequest setPostValue:message.text forKey:@"text"];
+        for(uint i=0; i<message.photos.count; i++) {
+            UIImprovedImage *image = [message.photos objectAtIndex:i];
+            [httpRequest setData:image.jpgData withFileName:@"myphoto.jpg" andContentType:@"image/jpeg" forKey:@"photo[]"];
+        }
         httpRequest.uploadProgressDelegate = self.progressDelegate;
         [httpRequest startAsynchronous];
-//        httpRequest.
     }
 }
 
