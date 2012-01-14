@@ -9,26 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "UIImprovedImage.h"
 #import "Message.h"
+#import "ASIFormDataRequest.h"
 
-@protocol HttpPostTransportDelegate;
-
-@interface HttpPostTransport : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
-    NSMutableData *receivedData;
-    NSURLConnection *urlConnection;
+@interface HttpPostTransport : NSObject <ASIProgressDelegate, ASIHTTPRequestDelegate> {
+    ASIFormDataRequest *httpRequest;
+    Message *message;
 }
 
-@property (assign)id<HttpPostTransportDelegate> delegate;
+@property (assign)id<ASIProgressDelegate> progressDelegate;
 
-- (void)beginUploadMessage:(Message *)message;
-- (NSURLRequest *)formPOSTFileDataRequestWithURLWithVariables:(NSURL *)url data:(NSData *)data fileName:(NSString *)fileName variables:(NSMutableDictionary*)variables;
+- (id)initWithMessage:(Message *)aMessage;
 
-@end
-
-
-@protocol HttpPostTransportDelegate <NSObject>
-
-@optional
-- (void)httpPostTransport:(HttpPostTransport *)httpPostTransport didCompleteUploadWithCode:(NSInteger)code;
-- (void)httpPostTransport:(HttpPostTransport *)httpPostTransport didCompleteUploadWithError:(NSError *)error;
+- (void)beginUpload;
 
 @end

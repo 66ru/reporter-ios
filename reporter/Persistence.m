@@ -10,14 +10,12 @@
 
 @implementation Persistence
 
-//@synthesize dataFilePath;
-
 - (id)init {
     self = [super init];
     
     NSString *docsDir;
     NSArray *dirPaths;
-    
+
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     dataFilePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"data.archive"]];

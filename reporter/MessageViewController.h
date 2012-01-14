@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TextCell.h"
 #import "Message.h"
-#import "TransportManager.h"
+#import "HttpPostTransport.h"
 #import "PhotoController.h"
 #import "MessageTextEditController.h"
 

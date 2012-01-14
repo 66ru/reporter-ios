@@ -43,8 +43,40 @@
 }
 
 - (void)sendMessage {
-    TransportManager *transportManager = [[[TransportManager alloc] init] autorelease];
-    [transportManager sendMessage:message];
+//    UIBarButtonItem *flexibleSpaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    CGFloat clientWidth = screenBounds.size.width-24;
+    UIView *progressViewWithText = [[UIView alloc] initWithFrame:CGRectMake(0, 0, clientWidth, 25)];
+    UILabel *progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, clientWidth, 15)];
+    progressLabel.text = @"1 of 10";
+    progressLabel.textAlignment = UITextAlignmentCenter;
+    progressLabel.textColor = [UIColor whiteColor];
+    progressLabel.backgroundColor = [UIColor clearColor];
+    progressLabel.shadowColor = [UIColor darkGrayColor];
+    progressLabel.shadowOffset = CGSizeMake(0, -1);
+    progressLabel.font = [UIFont boldSystemFontOfSize:13];
+    [progressViewWithText addSubview:progressLabel];
+    [progressLabel release];
+    UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake((clientWidth-clientWidth*2/3)/2, 16, clientWidth*2/3, 9)];
+    progressView.progressViewStyle = UIProgressViewStyleBar;
+    [progressViewWithText addSubview:progressView];
+    UIBarButtonItem *progressViewButtonItem = [[UIBarButtonItem alloc] initWithCustomView:progressViewWithText];
+    [progressViewWithText release];
+
+    // Set our toolbar items
+    self.toolbarItems = [
+            NSArray arrayWithObjects:
+                    progressViewButtonItem,
+                    nil
+    ];
+
+    [progressViewButtonItem release];
+
+    self.navigationController.toolbarHidden = NO;
+    HttpPostTransport *httpPostTransport = [[HttpPostTransport alloc] initWithMessage:message];
+    httpPostTransport.progressDelegate = progressView;
+    [progressView release];
+    [httpPostTransport beginUpload];
 }
 
 - (void)didReceiveMemoryWarning
@@ -176,6 +208,8 @@
     }
 }
 
+#pragma mark - Table view delegate
+
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     int rowsInSection = [tableView.dataSource tableView:tableView numberOfRowsInSection:indexPath.section];
     if (indexPath.row !=0 && indexPath.row != rowsInSection-1) {
@@ -192,8 +226,6 @@
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
-
-#pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
