@@ -28,7 +28,7 @@
         [httpRequest setPostValue:message.text forKey:@"text"];
         for(NSUInteger i=0; i<message.photos.count; i++) {
             UIImprovedImage *image = [message.photos objectAtIndex:i];
-            [httpRequest setData:image.jpgData withFileName:@"myphoto.jpg" andContentType:@"image/jpeg" forKey:@"photo[]"];
+            [httpRequest addData:image.jpgData withFileName:@"myphoto.jpg" andContentType:@"image/jpeg" forKey:@"photo[]"];
         }
         httpRequest.uploadProgressDelegate = self.progressDelegate;
         [httpRequest startAsynchronous];

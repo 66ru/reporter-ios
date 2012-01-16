@@ -227,6 +227,11 @@
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         }
         cell.textLabel.text = @"Добавить фото";
+
+        NSString *appDir = [[NSBundle mainBundle] resourcePath];
+        NSString *addPhotoImageFilename = [NSString stringWithString:[appDir stringByAppendingPathComponent: @"greenplus32.png"]];
+        cell.imageView.image = [UIImage imageWithContentsOfFile:addPhotoImageFilename];
+        cell.imageView.contentMode = UIViewContentModeCenter;
         
         return cell;
     } else {

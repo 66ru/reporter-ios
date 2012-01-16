@@ -24,6 +24,7 @@
 - (id)initWithMessage:(Message *)aMessage {
     self = [self init];
     if (self) {
+        self.title = @"Текст";
         self.message = aMessage;
         
         UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Сохранить" style:UIBarButtonItemStyleDone target:self action:@selector(saveText)];
