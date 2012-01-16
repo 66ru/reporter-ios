@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2669D7C0149DCDE200B04EBC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2669D7BF149DCDE200B04EBC /* MobileCoreServices.framework */; };
-		A86AD68C14C19C8100C511ED /* greenplus.png in Resources */ = {isa = PBXBuildFile; fileRef = A86AD68B14C19C8100C511ED /* greenplus.png */; };
-		A86AD68E14C1A2BA00C511ED /* greenplus32.png in Resources */ = {isa = PBXBuildFile; fileRef = A86AD68D14C1A2BA00C511ED /* greenplus32.png */; };
+		A86AD68C14C19C8100C511ED /* greenplus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A86AD68B14C19C8100C511ED /* greenplus@2x.png */; };
+		A86AD68E14C1A2BA00C511ED /* greenplus.png in Resources */ = {isa = PBXBuildFile; fileRef = A86AD68D14C1A2BA00C511ED /* greenplus.png */; };
 		A89C2C2C14B20378004FEF25 /* UIImprovedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A89C2C2B14B20378004FEF25 /* UIImprovedImage.m */; };
 		A8A89861149DA86400F95FAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89860149DA86400F95FAE /* UIKit.framework */; };
 		A8A89863149DA86400F95FAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A89862149DA86400F95FAE /* Foundation.framework */; };
@@ -40,8 +40,8 @@
 /* Begin PBXFileReference section */
 		2669D7BF149DCDE200B04EBC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A85C380814B0496C0026EE42 /* versionCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = versionCheck.h; sourceTree = "<group>"; };
-		A86AD68B14C19C8100C511ED /* greenplus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenplus.png; sourceTree = "<group>"; };
-		A86AD68D14C1A2BA00C511ED /* greenplus32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenplus32.png; sourceTree = "<group>"; };
+		A86AD68B14C19C8100C511ED /* greenplus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenplus@2x.png"; sourceTree = "<group>"; };
+		A86AD68D14C1A2BA00C511ED /* greenplus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenplus.png; sourceTree = "<group>"; };
 		A89C2C2A14B20378004FEF25 /* UIImprovedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImprovedImage.h; sourceTree = "<group>"; };
 		A89C2C2B14B20378004FEF25 /* UIImprovedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImprovedImage.m; sourceTree = "<group>"; };
 		A8A8985C149DA86400F95FAE /* reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,8 +144,8 @@
 		A8A89866149DA86400F95FAE /* reporter */ = {
 			isa = PBXGroup;
 			children = (
-				A86AD68D14C1A2BA00C511ED /* greenplus32.png */,
-				A86AD68B14C19C8100C511ED /* greenplus.png */,
+				A86AD68D14C1A2BA00C511ED /* greenplus.png */,
+				A86AD68B14C19C8100C511ED /* greenplus@2x.png */,
 				A8A8986F149DA86400F95FAE /* AppDelegate.h */,
 				A8A89870149DA86400F95FAE /* AppDelegate.m */,
 				A8A89898149DC24100F95FAE /* Cells */,
@@ -268,8 +268,8 @@
 			files = (
 				A8A8986B149DA86400F95FAE /* InfoPlist.strings in Resources */,
 				A8A89897149DC21700F95FAE /* TextCell.xib in Resources */,
-				A86AD68C14C19C8100C511ED /* greenplus.png in Resources */,
-				A86AD68E14C1A2BA00C511ED /* greenplus32.png in Resources */,
+				A86AD68C14C19C8100C511ED /* greenplus@2x.png in Resources */,
+				A86AD68E14C1A2BA00C511ED /* greenplus.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

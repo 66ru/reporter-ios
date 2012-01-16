@@ -9,6 +9,8 @@
 #import "MessageViewController.h"
 
 //todo: implement https://github.com/AlanQuatermain/AQGridView
+//todo: disable send button
+//todo: parse error response
 
 @implementation MessageViewController
 @synthesize textCell, message;
@@ -228,9 +230,7 @@
         }
         cell.textLabel.text = @"Добавить фото";
 
-        NSString *appDir = [[NSBundle mainBundle] resourcePath];
-        NSString *addPhotoImageFilename = [NSString stringWithString:[appDir stringByAppendingPathComponent: @"greenplus32.png"]];
-        cell.imageView.image = [UIImage imageWithContentsOfFile:addPhotoImageFilename];
+        cell.imageView.image = [UIImage imageNamed:@"greenplus.png"];
         cell.imageView.contentMode = UIViewContentModeCenter;
         
         return cell;
