@@ -18,6 +18,7 @@
     UILabel *progressLabel;
     UIProgressView *progressView;
     HttpPostTransport *httpPostTransport;
+    UIBarButtonItem *sendButton;
 }
 
 @property (retain, nonatomic) IBOutlet TextCell *textCell;

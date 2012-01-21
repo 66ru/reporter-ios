@@ -22,7 +22,7 @@
 
 - (void)beginUpload {
     if (message != nil) {
-        NSURL *uploadUrl = [NSURL URLWithString:@"http://localhost/reporter.php"];
+        NSURL *uploadUrl = [NSURL URLWithString:@"http://localhost:8080/reporter.php"];
         httpRequest = [ASIFormDataRequest requestWithURL:uploadUrl];
         httpRequest.delegate = self.requestDelegate;
         [httpRequest setPostValue:message.text forKey:@"text"];

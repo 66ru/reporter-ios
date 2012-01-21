@@ -46,8 +46,8 @@
 }
 
 - (void)saveText {
-    self.message.text = textField.text;
     [self.navigationController popViewControllerAnimated:YES];
+    self.message.text = textField.text; // need to ve after popViewController for uitextview autocomplete
 }
 
 - (void)goBack {

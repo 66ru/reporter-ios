@@ -9,8 +9,6 @@
 #import "MessageViewController.h"
 
 //todo: implement https://github.com/AlanQuatermain/AQGridView
-//todo: disable send button
-//todo: parse error response
 
 @implementation MessageViewController
 @synthesize textCell, message;
@@ -21,9 +19,9 @@
     if (self) {
         self.title = @"Репортаж";
         
-        UIBarButtonItem *sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Отправить" style:UIBarButtonItemStylePlain target:self action:@selector(sendMessage)];
+        sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Отправить" style:UIBarButtonItemStylePlain target:self action:@selector(sendMessage)];
+        sendButton.enabled = NO;
         self.navigationItem.rightBarButtonItem = sendButton;
-        [sendButton release];
     }
     return self;
 }
@@ -33,6 +31,9 @@
     if (self) {
         self.message = aMessage;
         
+        if (![message.text isEqualToString:@""])
+            sendButton.enabled = YES;
+
         [message addObserver:self forKeyPath:@"text" options:0 context:nil];
         [message addObserver:self forKeyPath:@"photos" options:0 context:nil];
     }
@@ -42,6 +43,10 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     [self.tableView reloadData];
+    if (![message.text isEqualToString:@""])
+        sendButton.enabled = YES;
+    else
+        sendButton.enabled = NO;
 }
 
 #pragma mark SendMessage
@@ -103,13 +108,18 @@
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request {
-    progressLabel.text = @"Отправлено";
-    while (message.photos.count) {
-        [message.photos removeObjectAtIndex:0];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    NSString *response = [[[NSString alloc] initWithData:request.rawResponseData encoding:NSISOLatin1StringEncoding] autorelease];
+    if (request.responseStatusCode == 200 && [response isEqualToString:@"ok"]) {
+        progressLabel.text = @"Отправлено";
+        while (message.photos.count) {
+            [message.photos removeObjectAtIndex:0];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+        message.text = @"";
+    } else {
+        progressLabel.text = @"Ошибка при отправке"; 
     }
-    message.text = @"";
     [self delayAndHideToolbar];
 }
 
@@ -130,6 +140,7 @@
     [httpPostTransport release];
     [progressLabel release];
     [progressView release];
+    [sendButton release];
     
     [super dealloc];
 }
